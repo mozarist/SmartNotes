@@ -23,13 +23,13 @@ export default function Login() {
         backgroundColor: "white",
       }}
     >
+      <Image
+        source={require("@/assets/images/SmartNote-Icon.svg")}
+        style={{ width: size.iconSize["4xl"], height: size.iconSize["4xl"] }}
+        contentFit="contain"
+      />
       <View style={{ alignItems: "center", gap: size.spacing.xs }}>
-        <Image
-          source={require("@/assets/images/SmartNote-Icon.svg")}
-          style={{ width: size.iconSize["3xl"], height: size.iconSize["3xl"] }}
-          contentFit="contain"
-        />
-        <Text style={styles.heading}>Login SmartNote</Text>
+        <Text style={styles.heading}>Log in to SmartNote</Text>
 
         <Text style={styles.text}>
           Start organizing your thoughts with SmartNote.
