@@ -43,7 +43,7 @@ export default function Login() {
       >
         <View style={{ width: "100%", gap: size.spacing.xs }}>
           <Label>Email</Label>
-          <Input placeholder="azzammozarist.xpro@gmail.com" />
+          <Input placeholder="ex: azzammozarist.xpro@gmail.com" />
         </View>
         <View style={{ width: "100%", gap: size.spacing.xs }}>
           <View
@@ -61,7 +61,7 @@ export default function Login() {
               Forgot Password?
             </Text>
           </View>
-          <Input placeholder="Password" secureTextEntry={true} />
+          <Input placeholder="Enter your password" secureTextEntry={true} />
         </View>
       </KeyboardAvoidingView>
 

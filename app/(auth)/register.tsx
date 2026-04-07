@@ -49,15 +49,15 @@ export default function Register() {
         >
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Name</Label>
-            <Input placeholder="Mozarist" />
+            <Input placeholder="ex: Mozarist" />
           </View>
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Email</Label>
-            <Input placeholder="azzammozarist.xpro@gmail.com" />
+            <Input placeholder="ex: azzammozarist.xpro@gmail.com" />
           </View>
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Password</Label>
-            <Input placeholder="Password" secureTextEntry={true} />
+            <Input placeholder="Create a password" secureTextEntry={true} />
           </View>
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Confirm Password</Label>
