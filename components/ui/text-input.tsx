@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
+import { colors } from "@/constants/color";
+import * as size from "@/constants/sizing";
 
 type TextInputProps = {
   placeholder: string;
@@ -17,6 +19,7 @@ export default function Input({
   return (
     <TextInput
       placeholder={placeholder}
+      placeholderTextColor={colors.muted}
       style={styles.textInput}
       secureTextEntry={secureTextEntry}
       value={value}
@@ -30,10 +33,10 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "white",
     borderWidth: 1,
-    borderColor: "#e5e5e5",
+    borderColor: colors.border,
     borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingHorizontal: size.spacing.md,
+    paddingVertical: size.spacing.md,
     fontSize: 16,
   },
 });

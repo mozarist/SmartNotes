@@ -5,6 +5,9 @@ import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import Button from "@/components/ui/button";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Input from "@/components/ui/text-input";
+import { colors } from "@/constants/color";
+import * as size from "@/constants/sizing";
+import Label from "@/components/ui/label";
 
 export default function Login() {
   return (
@@ -20,44 +23,75 @@ export default function Login() {
         backgroundColor: "white",
       }}
     >
-
-      <View style={{ alignItems: "center", gap: 8 }}>
-        <LottieView
-          source={require("@/assets/animations/register.json")}
-          autoPlay
-          loop
-          speed={0.75}
-          style={{ width: 200, height: 175 }}
+      <View style={{ alignItems: "center", gap: size.spacing.xs }}>
+        <Image
+          source={require("@/assets/images/SmartNote-Icon.svg")}
+          style={{ width: size.iconSize["3xl"], height: size.iconSize["3xl"] }}
+          contentFit="contain"
         />
-        <Text style={styles.heading}>Login dulu kali</Text>
+        <Text style={styles.heading}>Login SmartNote</Text>
 
         <Text style={styles.text}>
-          Masuk pake akun kamu yang udah didaftarin ya!
+          Start organizing your thoughts with SmartNote.
         </Text>
       </View>
 
-      <KeyboardAvoidingView style={{ width: "100%", gap: 8 }} behavior="padding" keyboardVerticalOffset={16}>
-        <Input placeholder="Email" />
-        <Input placeholder="Password" secureTextEntry={true} />
+      <KeyboardAvoidingView
+        style={{ width: "100%", gap: size.spacing.md }}
+        behavior="padding"
+        keyboardVerticalOffset={16}
+      >
+        <View style={{ width: "100%", gap: size.spacing.xs }}>
+          <Label>Email</Label>
+          <Input placeholder="azzammozarist.xpro@gmail.com" />
+        </View>
+        <View style={{ width: "100%", gap: size.spacing.xs }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Label>Password</Label>
+            <Text
+              style={{ color: colors.primary, fontSize: size.fontSize.sm }}
+              onPress={() => router.push("/(tabs)")}
+            >
+              Forgot Password?
+            </Text>
+          </View>
+          <Input placeholder="Password" secureTextEntry={true} />
+        </View>
       </KeyboardAvoidingView>
 
-      <View style={{ width: "100%", gap: 8 }}>
+      <View style={{ width: "100%", gap: size.spacing.lg }}>
         <Button
           onPress={() => router.push("/(tabs)")}
-          label="Masuk"
-          color="green"
+          label="Login"
+          color={colors.primary}
         />
+
+        <Text style={styles.text}>Or login with</Text>
 
         <Button
           onPress={() => router.push("/(tabs)")}
-          label="Kamu admin? Masuk sini"
-          color="darkgreen"
+          label="Google Account"
+          color={colors.secondary}
+          labelColor={colors.foreground}
+          OutlineColor={colors.border}
+          svgIcon="google-icon.svg"
         />
       </View>
 
       <Text style={styles.text}>
-        Belum punya akun? {" "}
-        <Text style={styles.link} onPress={() => router.push("/(auth)/register")}>Daftar dulu</Text>
+        No account yet?{" "}
+        <Text
+          style={styles.link}
+          onPress={() => router.push("/(auth)/register")}
+        >
+          Register
+        </Text>
       </Text>
     </SafeAreaView>
   );
@@ -70,13 +104,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   text: {
-    color: "#474747",
-    fontSize: 14,
+    color: colors.text,
+    fontSize: size.fontSize.sm,
     fontWeight: 500,
     textAlign: "center",
   },
   link: {
-    color: "green",
-    textDecorationLine: "underline",
+    color: colors.primary,
   },
 });

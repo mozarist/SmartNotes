@@ -1,9 +1,10 @@
-import { Image } from "expo-image";
 import LottieView from "lottie-react-native";
 import { router } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import Button from "@/components/ui/button";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { colors } from "@/constants/color";
+import * as size from "@/constants/sizing";
 
 export default function WelcomeScreen() {
   return (
@@ -11,33 +12,45 @@ export default function WelcomeScreen() {
       style={{
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
-        gap: 32,
-        paddingHorizontal: 24,
-        backgroundColor: "white",
+        justifyContent: "space-between",
+        gap: size.spacing.xl,
+        paddingHorizontal: size.spacing.xl,
+        paddingVertical: size.spacing["4xl"],
+        backgroundColor: colors.primaryForeground,
       }}
     >
-      <LottieView
-        source={require("@/assets/animations/chicken-walking.json")}
-        autoPlay
-        loop
-        speed={1}
-        style={{ width: 450, height: 300 }}
-      />
-
-      <View style={{ gap: 8, paddingHorizontal: 24, }}>
-        <Text style={styles.heading}>Pat Cepat, San Pesan!</Text>
-
-        <Text style={styles.text}>
-          Pengantaran ke rumah & reservasi online untuk sate Cak Awih
-        </Text>
+      <View>
+        {/* This view only functions as a gap */}
       </View>
 
-      <View style={{ width: "100%", gap: 16 }}>
-        <Button onPress={() => router.push("/(auth)/register")} label="Ikutan pesan, yuk!" color="green" />
+      <View style={{ gap: 8, paddingHorizontal: size.spacing.xl }}>
+        <LottieView
+          source={require("@/assets/animations/creative-notes.json")}
+          autoPlay
+          loop
+          speed={1}
+          style={{ width: 450, height: 300 }}
+        />
+        <Text style={styles.heading}>SmartNote</Text>
+
+        <Text style={styles.text}>Your thoughts, refined and organized.</Text>
+      </View>
+
+      <View style={{ width: "100%", gap: 12 }}>
+        <Button
+          onPress={() => router.push("/(auth)/register")}
+          label="Start Now"
+          labelSize="lg"
+        />
 
         <Text style={styles.text}>
-          Sudah terdaftar? <Text onPress={() => router.push("/(auth)/login")} style={styles.link}>Masuk aja</Text>
+          Already have an account?{" "}
+          <Text
+            onPress={() => router.push("/(auth)/login")}
+            style={styles.link}
+          >
+            Login
+          </Text>
         </Text>
       </View>
     </SafeAreaView>
@@ -46,18 +59,18 @@ export default function WelcomeScreen() {
 
 const styles = StyleSheet.create({
   heading: {
-    fontSize: 28,
-    fontWeight: "bold",
+    color: colors.foreground,
+    fontSize: size.fontSize["4xl"],
+    fontWeight: 700,
     textAlign: "center",
   },
   text: {
-    color: "#474747",
-    fontSize: 14,
+    color: colors.text,
+    fontSize: size.fontSize.md,
     fontWeight: 500,
     textAlign: "center",
   },
   link: {
-    color: "green",
-    textDecorationLine: "underline",
+    color: colors.primary,
   },
 });

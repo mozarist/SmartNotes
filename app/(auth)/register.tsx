@@ -1,78 +1,116 @@
 import { Image } from "expo-image";
 import LottieView from "lottie-react-native";
 import { router } from "expo-router";
-import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import Button from "@/components/ui/button";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Input from "@/components/ui/text-input";
+import { colors } from "@/constants/color";
+import * as size from "@/constants/sizing";
+import Label from "@/components/ui/label";
 
 export default function Register() {
   return (
     <SafeAreaView
       style={{
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 32,
-        paddingHorizontal: 24,
-        paddingVertical: 64,
         backgroundColor: "white",
       }}
     >
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          flex: 1,
+          minHeight: 700,
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 32,
+          paddingHorizontal: size.spacing.xl,
+          paddingVertical: size.spacing["4xl"],
+          backgroundColor: "white",
+        }}
+      >
+        <View style={{ alignItems: "center", gap: size.spacing.xs }}>
+          <Text style={styles.heading}>Create Account</Text>
 
-      <View style={{ alignItems: "center", gap: 8 }}>
-        <LottieView
-          source={require("@/assets/animations/register.json")}
-          autoPlay
-          loop
-          speed={0.75}
-          style={{ width: 200, height: 175 }}
-        />
+          <Text style={styles.text}>Begin your writing journey.</Text>
+        </View>
 
-        <Text style={styles.heading}>Daftar dulu ya</Text>
+        <KeyboardAvoidingView
+          style={{ width: "100%", gap: size.spacing.md }}
+          behavior="padding"
+          keyboardVerticalOffset={16}
+        >
+          <View style={{ width: "100%", gap: size.spacing.xs }}>
+            <Label>Name</Label>
+            <Input placeholder="Mozarist" />
+          </View>
+          <View style={{ width: "100%", gap: size.spacing.xs }}>
+            <Label>Email</Label>
+            <Input placeholder="azzammozarist.xpro@gmail.com" />
+          </View>
+          <View style={{ width: "100%", gap: size.spacing.xs }}>
+            <Label>Password</Label>
+            <Input placeholder="Password" secureTextEntry={true} />
+          </View>
+          <View style={{ width: "100%", gap: size.spacing.xs }}>
+            <Label>Confirm Password</Label>
+            <Input placeholder="Confirm Your Password" secureTextEntry={true} />
+          </View>
+        </KeyboardAvoidingView>
 
+        <View style={{ width: "100%", gap: size.spacing.lg }}>
+          <Button
+            onPress={() => router.push("/(tabs)")}
+            label="Register"
+            color={colors.primary}
+          />
+
+          <Text style={styles.text}>Or register with</Text>
+
+          <Button
+            onPress={() => router.push("/(tabs)")}
+            label="Google Account"
+            color={colors.secondary}
+            labelColor={colors.foreground}
+            OutlineColor={colors.border}
+            svgIcon="google-icon.svg"
+          />
+        </View>
         <Text style={styles.text}>
-          Daftarin akun kamu disini, isi yang lengkap ya data yang aku minta,
-          jangan sampe ngga!
+          Already have an account?{" "}
+          <Text
+            onPress={() => router.push("/(auth)/login")}
+            style={styles.link}
+          >
+            Login
+          </Text>
         </Text>
-      </View>
-
-      <KeyboardAvoidingView style={{ width: "100%", gap: 8 }} behavior="padding" keyboardVerticalOffset={16}>
-        <Input placeholder="Nama Lengkap" />
-        <Input placeholder="Email" />
-        <Input placeholder="Password" secureTextEntry={true} />
-        <Input placeholder="Konfirmasi Password" secureTextEntry={true} />
-      </KeyboardAvoidingView>
-
-      <View style={{ width: "100%", gap: 16 }}>
-        <Button
-          onPress={() => router.push("/(tabs)")}
-          label="Daftar"
-          color="green"
-        />
-
-        <Text style={styles.text}>
-          Sudah terdaftar? <Text onPress={() => router.push("/(auth)/login")} style={styles.link}>Masuk aja</Text>
-        </Text>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   heading: {
-    fontSize: 36,
+    color: colors.foreground,
+    fontSize: size.fontSize["4xl"],
     fontWeight: "bold",
     textAlign: "center",
   },
   text: {
-    color: "#474747",
-    fontSize: 14,
+    color: colors.text,
+    fontSize: size.fontSize.sm,
     fontWeight: 500,
     textAlign: "center",
   },
   link: {
-    color: "green",
-    textDecorationLine: "underline",
+    color: colors.primary,
   },
 });
