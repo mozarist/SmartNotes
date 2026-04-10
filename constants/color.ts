@@ -3,7 +3,7 @@ export const colors = {
   foreground: "#0A0A0A",
   text: "#575757",
   card: "#ffffff",
-  border: "#e9e9e9",
+  border: "#f0f0f0",
   primary: "#2885f0",
   primaryForeground: "#ffffff",
   secondary: "#ffffff",
