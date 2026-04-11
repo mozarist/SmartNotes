@@ -1,5 +1,4 @@
 import { Image } from "expo-image";
-import LottieView from "lottie-react-native";
 import { router } from "expo-router";
 import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import Button from "@/components/ui/button";
@@ -43,7 +42,7 @@ export default function Login() {
       >
         <View style={{ width: "100%", gap: size.spacing.xs }}>
           <Label>Email</Label>
-          <Input placeholder="ex: azzammozarist.xpro@gmail.com" />
+          <Input placeholder="Enter your registered email" />
         </View>
         <View style={{ width: "100%", gap: size.spacing.xs }}>
           <View

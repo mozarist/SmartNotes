@@ -2,14 +2,14 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { Children } from "react";
 
 type CardProps = {
-  Children: React.ReactNode;
-  onPress: () => void;
+  children: React.ReactNode;
+  onPress?: () => void;
 };
 
-export default function Card({ Children, onPress = () => {} }: CardProps) {
+export default function Card({ children, onPress = () => {} }: CardProps) {
   return (
     <Pressable style={styles.card} onPress={onPress}>
-      { Children }
+      { children }
     </Pressable>
   );
 }

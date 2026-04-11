@@ -20,7 +20,7 @@ export default function WelcomeScreen() {
       }}
     >
       <View>
-        {/* This view only functions as a gap */}
+        {/* This view only functions as a transparent space */}
       </View>
 
       <View style={{ gap: 8, paddingHorizontal: size.spacing.xl }}>
@@ -39,7 +39,7 @@ export default function WelcomeScreen() {
       <View style={{ width: "100%", gap: 12 }}>
         <Button
           onPress={() => router.push("/(auth)/register")}
-          label="Start Now"
+          label="Get started"
           labelSize="lg"
         />
 

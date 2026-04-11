@@ -1,5 +1,3 @@
-import { Image } from "expo-image";
-import LottieView from "lottie-react-native";
 import { router } from "expo-router";
 import {
   KeyboardAvoidingView,
@@ -37,7 +35,7 @@ export default function Register() {
         }}
       >
         <View style={{ alignItems: "center", gap: size.spacing.xs }}>
-          <Text style={styles.heading}>Create Account</Text>
+          <Text style={styles.heading}>Create an Account</Text>
 
           <Text style={styles.text}>Begin your writing journey.</Text>
         </View>
@@ -53,7 +51,7 @@ export default function Register() {
           </View>
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Email</Label>
-            <Input placeholder="ex: azzammozarist.xpro@gmail.com" />
+            <Input placeholder="ex: mozarist@gmail.com" />
           </View>
           <View style={{ width: "100%", gap: size.spacing.xs }}>
             <Label>Password</Label>

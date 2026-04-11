@@ -4,6 +4,7 @@ import { HelloWave } from '@/components/hello-wave';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '@/constants/color';
 import * as sizing from '@/constants/sizing';
+import Card from '@/components/ui/card';
 
 export default function HomeScreen() {
   return (
@@ -12,6 +13,10 @@ export default function HomeScreen() {
         <Text style={styles.heading}>My Notes</Text>
         <Text style={styles.subheading}>You have 12 active thoughts today.</Text>
       </View>
+
+      <Card>
+        <Text style={styles.heading}>My Notes</Text>
+      </Card>
     </SafeAreaView>
   );
 }
