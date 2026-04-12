@@ -29,6 +29,7 @@ export default function InspirationCard({ title = "Menjaga fokus di era distraks
                                 maxWidth: '80%'
                             },
                         ]}
+                        numberOfLines={2}
                         ellipsizeMode="tail"
                     >
                         "{title}"
