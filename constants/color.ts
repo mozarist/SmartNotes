@@ -1,6 +1,6 @@
 export const colors = {
-  background: "#f5f6f7",
-  foreground: "#0A0A0A",
+  background: "#f7f7f7",
+  foreground: "#2b2b2b",
   text: "#575757",
   card: "#ffffff",
   border: "#f0f0f0",
@@ -10,6 +10,7 @@ export const colors = {
   secondaryForeground: "#2885f0",
   muted: "#868686",
   accent: "#deeaff",
+  "accent/50": "#deeaff50",
   success: "green",
   warning: "#FE9A00",
   danger: "darkred",
