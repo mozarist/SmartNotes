@@ -61,32 +61,11 @@ export default function TabLayout() {
           }}
         />
       </Drawer>
-      <View style={styles.fab}>
-        <Button label="Write" icon={SquarePen} labelSize='lg' />
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  fab: {
-    position: 'absolute',
-    right: size.spacing.xl,
-    bottom: 72,
-    borderRadius: size.radius.full,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    zIndex: 100,
-  },
-  fabText: {
-    color: colors.primaryForeground,
-    fontWeight: 'bold',
-    fontSize: size.fontSize.lg,
-    letterSpacing: 1,
-  },
   headerContainer: {
     backgroundColor: colors.card,
     borderBottomColor: colors.border,
