@@ -3,7 +3,7 @@ import { colors } from '@/constants/color';
 import * as size from '@/constants/sizing';
 import { Image } from 'expo-image';
 import { Drawer } from 'expo-router/drawer';
-import { Compass, FileText, Menu, SquarePen, UserRound } from 'lucide-react-native';
+import { Archive, Compass, FileText, Menu, Settings, SquarePen, Star, Trash2, UserRound } from 'lucide-react-native';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -46,6 +46,11 @@ export default function TabLayout() {
           drawerLabelStyle: styles.drawerLabel,
           drawerStyle: styles.drawer,
         }}>
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: size.spacing.xs }}>
+          <Image source={require('@/assets/images/SmartNote-Icon.svg')} style={{ width: 20, height: 20 }} contentFit={'contain'} />
+          <Text style={styles.headerTitle}>SmartNotes</Text>
+        </View>
+
         <Drawer.Screen
           name="index"
           options={{
@@ -58,6 +63,35 @@ export default function TabLayout() {
           options={{
             title: 'Discover',
             drawerIcon: ({ color }) => <Compass size={size.iconSize.md} color={color} />,
+          }}
+        />
+        <Drawer.Screen
+          name="favorites"
+          options={{
+            title: 'Favorites',
+            drawerIcon: ({ color }) => <Star size={size.iconSize.md} color={color} />,
+          }}
+        />
+        <Drawer.Screen
+          name="archived"
+          options={{
+            title: 'Archived',
+            drawerIcon: ({ color }) => <Archive size={size.iconSize.md} color={color} />,
+          }}
+        />
+        <Drawer.Screen
+          name="trash"
+          options={{
+            title: 'Trash',
+            drawerIcon: ({ color }) => <Trash2 size={size.iconSize.md} color={color} />,
+          }}
+        />
+
+        <Drawer.Screen
+          name="settings"
+          options={{
+            title: 'Settings',
+            drawerIcon: ({ color }) => <Settings size={size.iconSize.md} color={color} />,
           }}
         />
       </Drawer>
@@ -103,6 +137,6 @@ const styles = StyleSheet.create({
   },
   drawerLabel: {
     fontSize: size.fontSize.md,
-    marginLeft: -size.spacing.sm,
+    marginLeft: -size.spacing.xs,
   },
 });
